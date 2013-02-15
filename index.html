@@ -38,7 +38,7 @@
 </header>
 {/block:IndexPage}
  
-<div id="posts">
+<div id="{block:IndexPage}posts{/block:IndexPage}{block:PermalinkPage}singlePost{/block:PermalinkPage}">
 	    
 	<div id="closeButton">
 		close!
@@ -46,10 +46,11 @@
     
 
     {block:Posts}
-    <article class="post">
-    	<a class="post-url" href="{Permalink}">
     
-    	 {block:Date}
+    {block:IndexPage}<a class="post-url" href="{Permalink}">{/block:IndexPage}
+    <article class="post">
+    
+    	{block:Date}
         	<div class="date">
         		<time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}">{Month} {DayOfMonth}, {Year}</time>
         	</div>
@@ -148,8 +149,10 @@
             {/block:PermalinkPage} 
         </footer-->
         
-        </a>
+        
      </article>
+    {block:IndexPage}</a>{/block:IndexPage}
+    
     {/block:Posts}
     {block:Pagination}
     <nav id="pagination">

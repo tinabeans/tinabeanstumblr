@@ -9,6 +9,10 @@ $(document).ready(function(){
 		
 		$('#closeButton').show();
 		
+		var postURL = $(e.target).closest('.post-url').attr('href');
+		
+		$('#overlay').load(postURL + " #singlePost");
+		
 	});
 	
 	$('#closeButton').click(function(e){

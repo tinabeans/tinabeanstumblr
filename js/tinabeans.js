@@ -2,16 +2,10 @@ $(document).ready(function(){
 	$('.post').click(function(e){
 		e.preventDefault();
 		
-		var $post = $(e.target).closest('.post');
-		
-		$post.addClass('active');
-		
-		$post.animate({height : ($(window).height())});
+		$('#overlay').addClass('active');
 		
 		$('body').addClass('no-scroll');
 		$('body').bind('touchmove', function(e){e.preventDefault()}) // for mobile
-		
-		$('body').animate({scrollTop: $post.offset().top});
 		
 		$('#closeButton').show();
 		

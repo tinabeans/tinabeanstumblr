@@ -1,3 +1,5 @@
+@import "compass/css3";
+
 // TYPOGRAPHY
 
 $display-type: "apertura", Helvetica, sans-serif;
@@ -81,7 +83,15 @@ h1, h2, h3, h4 {
 	left: 0;
 	top: 0;
 	z-index:2;
-	display: none;
+	visibility: hidden;
+	opacity: 0;
+	@include transition-property(opacity);
+	@include transition-duration(.5s);
+	
+	&.active {
+		visibility:visible;
+		opacity: 1;
+	}
 }
 
 // HEADER
@@ -154,7 +164,7 @@ h1, h2, h3, h4 {
 	position: relative;
 	height: 200px;
 	overflow: hidden;
-	box-sizing:border-box;
+	@include box-sizing(border-box);
 	
 	&.active {
 		background: white;

@@ -7,20 +7,20 @@
 <link rel="shortcut icon" href="{Favicon}"/>
 <link rel="alternate" type="application/rss+xml" title="{Title} RSS" href="{RSS}"/>
 <link rel="stylesheet" href="http://static.tumblr.com/hznqxps/ivOmgjf8v/normalize.css" />
-<link rel="stylesheet" type="text/css" href="http://tinabeans.com/new2/css/style.css" />
+<link rel="stylesheet" type="text/css" href="http://tinabeans.com/tumblr-assets/css/style.css" />
 
 <script type="text/javascript" src="//use.typekit.net/hre1wne.js"></script>
 <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
 <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-<script src="http://tinabeans.com/new2/js/tinabeans.js"></script>
+<script src="http://tinabeans.com/tumblr-assets/js/tinabeans.js"></script>
 </head>
 
 <body>
 
 {block:IndexPage}
 <header id="masthead">
-    <img class="logo" src="http://tinabeans.com/new2/images/logo.png" />
+    <img class="logo" src="http://tinabeans.com/tumblr-assets/images/logo.png" />
     <h1>{Title}</h1>
     <h2>{Description}</h2>
     
@@ -47,12 +47,11 @@
 
     {block:Posts}
     <article class="post">
+    	<a class="post-url" href="{Permalink}">
     
     	 {block:Date}
         	<div class="date">
-        		<a href="{Permalink}">
-        			<time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}">{Month} {DayOfMonth}, {Year}</time>
-        		</a>
+        		<time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}">{Month} {DayOfMonth}, {Year}</time>
         	</div>
         {/block:Date}
     
@@ -149,6 +148,7 @@
             {/block:PermalinkPage} 
         </footer-->
         
+        </a>
      </article>
     {/block:Posts}
     {block:Pagination}

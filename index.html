@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+{block:Description} <meta name="description" content="{MetaDescription}" /> {/block:Description}
+<title>{block:TagPage}{Tag} - {/block:TagPage} {block:SearchPage}{lang:Search results for SearchQuery} - {/block:SearchPage}{block:PostSummary}{PostSummary} - {/block:PostSummary}{Title}</title>
+
+<link rel="shortcut icon" href="{Favicon}"/>
+<link rel="alternate" type="application/rss+xml" title="{Title} RSS" href="{RSS}"/>
+<link rel="stylesheet" href="http://static.tumblr.com/hznqxps/ivOmgjf8v/normalize.css" />
+<link rel="stylesheet" type="text/css" href="http://tinabeans.com/new2/css/style.css" />
+
+<script type="text/javascript" src="//use.typekit.net/hre1wne.js"></script>
+<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="http://tinabeans.com/new2/js/tinabeans.js"></script>
+</head>
+
+<body>
+
+{block:IndexPage}
+<header id="masthead">
+    <img class="logo" src="http://tinabeans.com/new2/images/logo.png" />
+    <h1>{Title}</h1>
+    <h2>{Description}</h2>
+    
+    <nav id="tags">
+        <a href="" class="active"><span class="icon heart"></span>living</a>
+    	<a href=""><span class="icon heart"></span>thinking</a>
+    	<a href=""><span class="icon heart"></span>making</a>
+    </nav>
+    
+    <nav id="elsewhere">
+    	<a href="">about</a>
+    	<a href=""><span class="icon twitter">twitter</span></a>
+    	<a href=""><span class="icon email">email</span></a>
+    </nav>
+</header>
+{/block:IndexPage}
+ 
+<div id="posts">
+	    
+	<div id="closeButton">
+		close!
+	</div>
+    
+
+    {block:Posts}
+    <article class="post">
+    
+    	 {block:Date}
+        	<div class="date">
+        		<a href="{Permalink}">
+        			<time datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}">{Month} {DayOfMonth}, {Year}</time>
+        		</a>
+        	</div>
+        {/block:Date}
+    
+        {block:Text}
+        <div class="text">
+            {block:Title}<h1 class="title">{Title}</h1>{/block:Title}
+            {block:PermalinkPage}{Body}{/block:PermalinkPage}
+        {/block:Text}
+
+        {block:Photo}
+        <div class="photo">
+            {block:PermalinkPage}{LinkOpenTag}<img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" />{LinkCloseTag}{/block:PermalinkPage}
+            {block:Caption}{Caption}{/block:Caption}
+        </div>
+        {/block:Photo}
+
+        {block:Photoset}
+        <div class="photoset">
+            {block:PermalinkPage}{Photoset-700}{/block:PermalinkPage}
+            {block:Caption}{Caption}{/block:Caption}
+        </div>
+        {/block:Photoset}
+
+        {block:Quote}
+        <div class="quote">
+            <blockquote>{Quote}</blockquote>
+            {block:Source}<cite> {Source} </cite>{/block:Source}
+        </div>
+        {/block:Quote}
+
+        {block:Link}
+        <div class="link">
+            <h1 class="title"><a href="{URL}">{Name}</a></h1>
+            {block:Description}{Description}{/block:Description}
+        </div>
+        {/block:Link}
+
+        {block:Chat}
+        <div class="chat">
+            <ul>
+                {block:Lines}<li class="{Alt}"><p>{block:Label}<strong>{Label}</strong>{/block:Label} {Line} </p></li>{/block:Lines}
+            </ul>
+        </div>
+        {/block:Chat}
+
+        {block:Audio}
+        <div class="audio">
+            {block:TrackName}<h1 class="title"><a href="{Permalink}">{TrackName}</a></h1>{/block:TrackName}
+            {block:AlbumArt}<img src="{AlbumArtURL}" width="500" height="500"/>{/block:AlbumArt}
+            {AudioPlayerBlack}
+            {block:Caption}{Caption}{/block:Caption}
+        </div>
+        {/block:Audio}
+
+        {block:Video}
+        <div class="video">
+            {Video-700}
+            {block:Caption}{Caption}{/block:Caption}
+        </div>
+        {/block:Video}
+
+        {block:Answer}
+        <div class="answer">
+            <h1 class="title">{Question}</h1>
+            <div class="user"><img src="{AskerPortraitURL-96}"/><p>{Asker}</p></div>
+            {Answer}
+        </div>
+        {/block:Answer}
+        
+        <!--footer class="metadata">
+            <ul class="index">
+                <li></li>
+
+                {block:NoteCount}<li><a class="notecount" href="{Permalink}#notes">{NoteCountWithLabel}</a></li>{/block:NoteCount}
+                
+                {block:ContentSource}
+                <li><a href="{SourceURL}">{lang:Source}:{block:NoSourceLogo}{SourceTitle}{/block:NoSourceLogo}
+                {block:SourceLogo}<img src="{BlackLogoURL}" width="{LogoWidth}"height="{LogoHeight}" alt="{SourceTitle}" />{/block:SourceLogo}</a></li>
+                {/block:ContentSource} 
+            </ul>
+
+            {block:PermalinkPage}
+            {block:HasTags}
+            <ul class="tags">
+                {block:Tags}<li><a href="{TagURL}">{Tag}</a> </li>{/block:Tags}
+            </ul>
+            {/block:HasTags}
+            
+            {block:PostNotes}
+            <div id="notes">
+                {PostNotes}
+            </div>
+            {/block:PostNotes} 
+            {/block:PermalinkPage} 
+        </footer-->
+        
+     </article>
+    {/block:Posts}
+    {block:Pagination}
+    <nav id="pagination">
+        <ul>
+            {block:NextPage}<li><a href="{NextPage}">Next page</a></li>{/block:NextPage}
+            {block:PreviousPage}<li><a href="{PreviousPage}">Previous page</a></li>{/block:PreviousPage}
+        </ul>
+    </nav>
+    {/block:Pagination}
+</div>
+
+<div id="overlay"></div>
+
+</body>
+</html>

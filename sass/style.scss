@@ -1,0 +1,182 @@
+// TYPOGRAPHY
+
+$display-type: "apertura", Helvetica, sans-serif;
+
+
+// COLORS
+
+$pink: #da6178;
+$yellow: #fbd15b;
+
+$textcolor: #5d5d5d;
+$lightgray: #c2c2c2;
+
+
+// MIXINS
+
+@mixin tinabeans-gradient {
+	background: #da6178;
+	background: -moz-linear-gradient(-45deg, $pink 0%, $yellow 100%);
+	background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,$pink), color-stop(100%,$yellow));
+	background: -webkit-linear-gradient(-45deg, $pink 0%,$yellow 100%);
+	background: -o-linear-gradient(-45deg, $pink 0%,$yellow 100%);
+	background: -ms-linear-gradient(-45deg, $pink 0%,$yellow 100%);
+	background: linear-gradient(135deg, $pink 0%,$yellow 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$pink', endColorstr='#$yellow',GradientType=1 );
+}
+
+// BASE STYLES
+
+body {
+	font-family: $display-type;
+	font-size: 16px;
+	color: $textcolor;
+	
+	&.no-scroll {
+		height: 100%;
+		overflow: hidden;
+	}
+}
+
+a {
+	font-weight: bold;
+	text-decoration: none;
+}
+
+h1, h2, h3, h4 {
+	margin: 0;
+}
+
+// ICONS
+
+.icon {
+	display: inline-block;
+	width: 28px;
+	height: 28px;
+	background: url(../images/icons.png) no-repeat;
+	text-indent: -999em;
+	vertical-align: middle;
+	margin:0px 5px;
+	
+	&.heart {
+		background-position: 3px 0px;
+	}
+	
+	&.twitter {
+		background-position: -52px 0px;
+	}
+	
+	&.email {
+		background-position: -84px 0px;
+	}
+}
+
+// LAYOUT
+
+#overlay {
+	background: #fff;
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index:2;
+	display: none;
+}
+
+// HEADER
+
+#masthead {
+	@include tinabeans-gradient;
+	text-align: center;
+	color: #fff;
+	padding: 50px 20px 120px 20px;
+	position: relative;
+	
+	.logo {
+		margin-bottom: 40px;
+	}
+	
+	h1, h2 {
+		font-size: 3rem;
+		font-weight: 700;
+		line-height: 1.15em;
+	}
+	
+	h2 {
+		color: rgba(255,255,255,.5);
+	}
+	
+	nav a {
+		color: #fff;
+	}
+}
+
+#tags {
+	position: absolute;
+	left: 20px;
+	bottom: 20px;
+	
+	.active .icon.heart {
+		background-position: -25px 0px;
+	}
+	
+	.icon {
+		margin-right: 2px;
+		margin-top:2px;
+	}
+	
+	a {
+		display: inline-block;
+		margin-right: 10px;
+	}
+}
+
+#elsewhere {
+	position: absolute;
+	right: 20px;
+	bottom: 20px;
+}
+
+// POST
+
+#closeButton {
+	position: fixed;
+	right: 20px;
+	top: 20px;
+	display: none;
+	z-index: 1;
+}
+
+.post {
+	border-bottom:1px solid $lightgray;
+	padding: 115px 0px 0px 0px;
+	position: relative;
+	height: 200px;
+	overflow: hidden;
+	box-sizing:border-box;
+	
+	&.active {
+		background: white;
+		overflow: auto;
+	}
+
+	.title {
+		text-align: center;
+		width:100%;
+		position: absolute;
+		top: 60px;
+		font-size:2.5em;
+	}
+	
+	.date {
+		text-align: center;
+		margin-bottom: 55px;
+		
+		a {
+			color: $lightgray;
+			font-size:1.5em;
+			font-weight: 500;
+		}
+	}
+}

@@ -135,29 +135,33 @@ h1, h2, h3, h4 {
 
 /* line 155, ../sass/style.scss */
 #posts .post {
-  border-bottom: 1px solid #c2c2c2;
   position: relative;
   height: 200px;
   overflow: hidden;
 }
-/* line 162, ../sass/style.scss */
+/* line 161, ../sass/style.scss */
 #posts .post-url {
   display: block;
+  color: #5d5d5d;
+}
+/* line 165, ../sass/style.scss */
+#posts .post-url:hover {
+  background: whitesmoke;
 }
 
-/* line 167, ../sass/style.scss */
+/* line 171, ../sass/style.scss */
 .post {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   padding: 115px 0px 0px 0px;
 }
-/* line 172, ../sass/style.scss */
+/* line 176, ../sass/style.scss */
 .post.active {
   background: white;
   overflow: auto;
 }
-/* line 177, ../sass/style.scss */
+/* line 181, ../sass/style.scss */
 .post .title {
   text-align: center;
   width: 100%;
@@ -165,19 +169,16 @@ h1, h2, h3, h4 {
   top: 60px;
   font-size: 2.5em;
 }
-/* line 185, ../sass/style.scss */
+/* line 189, ../sass/style.scss */
 .post .date {
   text-align: center;
   margin-bottom: 55px;
-}
-/* line 189, ../sass/style.scss */
-.post .date a {
   color: #c2c2c2;
   font-size: 1.5em;
   font-weight: 500;
 }
 
-/* line 201, ../sass/style.scss */
+/* line 202, ../sass/style.scss */
 #closeButton {
   position: fixed;
   right: 20px;

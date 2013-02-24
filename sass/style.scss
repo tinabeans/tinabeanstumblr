@@ -14,6 +14,11 @@ $textcolor: #5d5d5d;
 $lightgray: #c2c2c2;
 
 
+// DIMENSIONS
+
+$mastheadHeight: 430px;
+
+
 // MIXINS
 
 @mixin tinabeans-gradient {
@@ -30,6 +35,7 @@ $lightgray: #c2c2c2;
 // BASE STYLES
 
 body {
+	background-attachment: fixed;
 	font-family: $display-type;
 	font-size: 16px;
 	color: $textcolor;
@@ -79,33 +85,51 @@ h1, h2, h3, h4 {
 	background: #fff;
 	width: 100%;
 	height: 100%;
-	overflow: auto;
+	overflow: hidden;
 	position: fixed;
 	left: 0;
 	top: 0;
-	z-index:2;
+	z-index:1338;
 	visibility: hidden;
 	opacity: 0;
-	@include transition-property(opacity);
+	@include transition-property(opacity, visibility);
 	@include transition-duration(.5s);
 	
 	&.active {
 		visibility:visible;
+		@include transition-property(opacity);
+		@include transition-duration(.5s);
 		opacity: 1;
+	}
+	
+	iframe {
+		width: 100%;
+		height: 100%;
+		overflow: auto;
+		border: 0;
 	}
 }
 
 // HEADER
 
 #masthead {
+	@include box-sizing(border-box);
 	@include tinabeans-gradient;
 	text-align: center;
 	color: #fff;
-	padding: 50px 20px 120px 20px;
 	position: relative;
+	height: $mastheadHeight;
+	width: 100%;
+	position: fixed;
+	z-index: 3;
+	padding: 200px 0px 120px 0px;
 	
 	.logo {
-		margin-bottom: 40px;
+		position: fixed;
+		left: 50%;
+		margin-left:-45px;
+		top: 70px;
+		margin-top: -9px;
 	}
 	
 	h1, h2 {
@@ -121,12 +145,26 @@ h1, h2, h3, h4 {
 	nav a {
 		color: #fff;
 	}
+	
+	.nav_container {
+		width: 100%;
+		position: absolute;
+		bottom: 0;
+		padding: 20px;
+		text-align: left;
+		@include box-sizing(border-box);
+	}
+	
+	.masthead_content {
+		position: relative;
+	}
+}
+
+.content {
+	padding-top: $mastheadHeight;
 }
 
 #tags {
-	position: absolute;
-	left: 20px;
-	bottom: 20px;
 	
 	.active .icon.heart {
 		background-position: -25px 0px;
@@ -146,12 +184,14 @@ h1, h2, h3, h4 {
 #elsewhere {
 	position: absolute;
 	right: 20px;
-	bottom: 20px;
+	top: 20px;
 }
 
 // INDEX PAGE
 
 #posts {
+	background: #fff;
+
 	.post {
 		position: relative;
 		height: 200px;
@@ -204,7 +244,7 @@ h1, h2, h3, h4 {
 	right: 20px;
 	top: 20px;
 	display: none;
-	z-index: 3;
+	z-index: 1339;
 	cursor: pointer;
 }
 
